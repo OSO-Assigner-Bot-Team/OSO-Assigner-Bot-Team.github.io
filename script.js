@@ -1,5 +1,5 @@
 async function fetchJobs() {
-    const API_URL = "http://24.199.109.12:3000/jobs.0.csv";
+    const API_URL = "https://24.199.109.12:3000/jobs.0.csv";
 
     try {
         const response = await fetch(API_URL);
