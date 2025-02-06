@@ -1,10 +1,13 @@
 async function fetchJobs() {
-    const API_URL = "https://24.199.109.12:3000/jobs.0.csv";
+    const API_URL = "https://24.199.109.12:3000/jobs.0.csv"; // This is a CSV file, not JSON
 
     try {
         const response = await fetch(API_URL);
-        const jobs = await response.json();
-        console.log(jobs); // Debugging
+        const text = await response.text(); // Get CSV text
+        console.log(text); // Debugging CSV response
+
+        const jobs = csvToJson(text); // Convert CSV to JSON
+        console.log(jobs); // Debugging JSON output
 
         const table = document.getElementById("jobTable");
 
@@ -25,9 +28,4 @@ async function fetchJobs() {
 
             table.appendChild(row);
         });
-    } catch (error) {
-        console.error("Error fetching job data:", error);
-    }
-}
-
-window.onload = fetchJobs;
+    
