@@ -28,5 +28,8 @@ async function fetchJobs() {
 
             table.appendChild(row);
         });
-    };
+    } finally {
+        
+    }
+    
     
