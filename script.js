@@ -28,7 +28,7 @@ async function fetchJobs() {
 
             table.appendChild(row);
         });
-    } finally {
-        
+    } catch (error) {
+        console.error("Error fetching jobs:", error);
     }
 }
